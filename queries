@@ -1,0 +1,83 @@
+// mutation userCreate{
+//   userCreate(input:{
+// 		name:"mai",
+// 		email:"mai@mail.com",
+// 		password:"12345"
+//   }){
+//     name
+//     email
+//   }
+// }
+
+// mutation userLogin{
+//   userLogin(email:"mai@mail.com",password:"12345")
+// }
+
+// mutation postCreate{
+//   postCreate(title:"mai",content:"mai is sleepy",token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2UxMDk0NDM4NWI0MTMyMGNkZTkxMTIiLCJpYXQiOjE2NzU2OTI1NTR9.d65cZtkt2ZeveSV34qt7WGaSFAObgBtpu-s3-4BjWo4")
+// }
+
+// # mutation postUpdate{
+// #   postUpdate(title:"mayar",content:"rania hate mai",token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2UxMDk0NDM4NWI0MTMyMGNkZTkxMTIiLCJpYXQiOjE2NzU2OTI1NTR9.d65cZtkt2ZeveSV34qt7WGaSFAObgBtpu-s3-4BjWo4",_id:"63e10bbf385b41320cde9116"){
+// #     title
+// #     content
+  
+// #   }
+// # }
+
+// mutation postUpdate{
+//   postUpdate(title:"mayar",content:"rania love mai",token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2UxMDk0NDM4NWI0MTMyMGNkZTkxMTIiLCJpYXQiOjE2NzU2OTI1NTR9.d65cZtkt2ZeveSV34qt7WGaSFAObgBtpu-s3-4BjWo4",_id:"63e10bbf385b41320cde9116"){
+//     title
+//     content
+  
+//   }
+// }
+
+// query getMyPosts{
+//   getMyPosts(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2UxMDk0NDM4NWI0MTMyMGNkZTkxMTIiLCJpYXQiOjE2NzU2OTI1NTR9.d65cZtkt2ZeveSV34qt7WGaSFAObgBtpu-s3-4BjWo4"){
+//     comments:content
+//   }
+// }
+
+// mutation postDelete{
+//   postDelete(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2UxMDk0NDM4NWI0MTMyMGNkZTkxMTIiLCJpYXQiOjE2NzU2OTI1NTR9.d65cZtkt2ZeveSV34qt7WGaSFAObgBtpu-s3-4BjWo4",_id:"63e10bbf385b41320cde9116"){
+//     title 
+//     content
+//   }
+// }
+
+// # mutation postGetOneById{token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2UxMDk0NDM4NWI0MTMyMGNkZTkxMTIiLCJpYXQiOjE2NzU2OTI1NTR9.d65cZtkt2ZeveSV34qt7WGaSFAObgBtpu-s3-4BjWo4",_id:"63e119447fe6b15a698bb4c3"){
+// #     title
+// #     content  }
+
+
+// mutation commentCreate{
+//   commentCreate(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2UxMDk0NDM4NWI0MTMyMGNkZTkxMTIiLCJpYXQiOjE2NzU2OTI1NTR9.d65cZtkt2ZeveSV34qt7WGaSFAObgBtpu-s3-4BjWo4",content:"ya rab",_id:"63e119447fe6b15a698bb4c3")
+    
+// }
+    
+// query getMyComments{
+//   getMyComments(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2UxMDk0NDM4NWI0MTMyMGNkZTkxMTIiLCJpYXQiOjE2NzU2OTI1NTR9.d65cZtkt2ZeveSV34qt7WGaSFAObgBtpu-s3-4BjWo4",_id:"63e119447fe6b15a698bb4c3"){
+//     content
+//   }
+  
+// }
+
+// mutation commentUpdate{
+//   commentUpdate(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2UxMDk0NDM4NWI0MTMyMGNkZTkxMTIiLCJpYXQiOjE2NzU2OTI1NTR9.d65cZtkt2ZeveSV34qt7WGaSFAObgBtpu-s3-4BjWo4",content:"hasbi allah w n3m el wakeel",_id:"63e13aed68ce4d3311600bb6"){
+//     content
+//   }
+// }
+
+
+// mutation commentDelete{
+//   commentDelete(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2UxMDk0NDM4NWI0MTMyMGNkZTkxMTIiLCJpYXQiOjE2NzU2OTI1NTR9.d65cZtkt2ZeveSV34qt7WGaSFAObgBtpu-s3-4BjWo4",_id:"63e13aed68ce4d3311600bb6"){
+//     content
+//   }
+// }
+
+// query commentGetOneById{
+//   commentGetOneById(token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2M2UxMDk0NDM4NWI0MTMyMGNkZTkxMTIiLCJpYXQiOjE2NzU2OTI1NTR9.d65cZtkt2ZeveSV34qt7WGaSFAObgBtpu-s3-4BjWo4",_id:"63e145e941f3b75f3423cf09"){
+//     content
+//   }
+// }

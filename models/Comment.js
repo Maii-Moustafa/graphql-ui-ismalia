@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
 
-
 const { Schema } = mongoose;
 
 const commentSchema = new Schema({
-	consent:{
+	content:{
 		type:String,
 		require:true
 	},
@@ -20,5 +19,8 @@ const commentSchema = new Schema({
 	}
 	
 });
+
+
+
 const Comment = mongoose.model('Comment',commentSchema);
 module.exports = Comment;
