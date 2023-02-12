@@ -47,7 +47,7 @@ const schema = buildSchema(`
 		userGetOne(id:ID!):User!
 		getMyPosts(token:String!):[Post!]!
     getMyComments(token:String!,_id:ID!):[Comment!]!
-    commentGetOneById(token:String!,_id:ID!):Comment
+    commentGetOneById(token:String!,_id:ID!,commentId:ID!):Comment
 	}
 	type Mutation {
 		userCreate(input:UserInput):User
@@ -106,18 +106,14 @@ const auth = async (token) => {
 const postQueries = {
   getMyPosts: async ({ token }) => {
     const user = await auth(token);
-    const posts = await Post.find({ userId: user._id })
-      .populate("userId")
-      .populate("comments");
-
-    console.log("posts", posts);
-    console.log("posts", posts[0].comments);
-    // return posts.map((post) => ({ ...post._doc, user: post.userId }));
-    return posts[0].comments;
+    const posts = await Post.find({ userId: user._id }).populate("userId");
+    return posts.map((post) => ({ ...post._doc, user: post.userId }));
   },
   postGetOneById: async ({ token, _id }) => {
     const user = await auth(token);
-    const post = await Post.findById(_id);
+    const post = await Post.findOne({ userId: user._id, _id: _id }).populate(
+      "comments"
+    );
     return post;
   },
 };
@@ -149,13 +145,20 @@ const postMutations = {
 const commentQueries = {
   getMyComments: async ({ token, _id }) => {
     const user = await auth(token);
-    const comments = await Post.findById(_id).populate("postId");
-    console.log("comments", comments);
+    const comments = await Comment.find({
+      userId: user.id,
+      postId: _id,
+    }).populate("postId userId");
+    // console.log("comments", comments);
     return comments;
   },
-  commentGetOneById: async ({ token, _id }) => {
+  commentGetOneById: async ({ token, _id, commentId }) => {
     const user = await auth(token);
-    const comment = await Comment.findById(_id);
+    const comment = await Comment.findOne({
+      userId: user.id,
+      postId: _id,
+      _id: commentId,
+    }).populate("postId userId");
     return comment;
   },
 };
